@@ -67,5 +67,3 @@ INSERT INTO timer
 VALUES(5, 0);
 
 SELECT * FROM timer;
-
-

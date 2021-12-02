@@ -1,24 +1,7 @@
-package com.hanul.dto;
+package com.hanul.DTO;
 
-public class AnswerDTO {
-	int answer;
+import java.io.Serializable;
 
-	
-	
-	public int getAnswer() {
-		return answer;
-	}
+public class AnswerDTO implements Serializable {
 
-	public void setAnswer(int answer) {
-		this.answer = answer;
-	}
-
-	public AnswerDTO() {
-		super();
-	}
-
-	public AnswerDTO(int answer) {
-		super();
-		this.answer = answer;
-	}
 }

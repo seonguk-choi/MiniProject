@@ -1,27 +1,7 @@
-package com.hanul.dto;
+package com.hanul.DTO;
 
-public class TimerDTO {
-	int timer;
+import java.io.Serializable;
 
-	
-	
-	public TimerDTO() {
-		super();
-	}
+public class TimerDTO implements Serializable {
 
-	public int getTimer() {
-		return timer;
-	}
-
-	public void setTimer(int timer) {
-		this.timer = timer;
-	}
-
-	
-	public TimerDTO(int timer) {
-		super();
-		this.timer = timer;
-	}
-	
-	
 }
