@@ -1,5 +1,7 @@
 package com.hanul.DTO;
 
-public class TimerDTO {
+import java.io.Serializable;
+
+public class TimerDTO implements Serializable {
 
 }

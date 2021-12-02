@@ -1,5 +1,7 @@
 package com.hanul.DTO;
 
-public class StudentDTO {
+import java.io.Serializable;
+
+public class StudentDTO implements Serializable{
 
 }
