@@ -29,12 +29,19 @@ public class StudentController extends HttpServlet {
 			request.setAttribute("dto", dto);
 			request.setAttribute("dtot", dtot);
 			rd.forward(request,response);
+<<<<<<< HEAD
 		} else if(request.getServletPath().equals("/studentGrade.bo")) {
 			dto = dao.studentExam(1001);
 			dtot = dao.timerExam();
 			RequestDispatcher rd = request.getRequestDispatcher("jsp/studentExam.jsp");
 			request.setAttribute("dto", dto);
 			request.setAttribute("dtot", dtot);
+=======
+		} else if(request.getServletPath().equals("/login.bo")) {
+			dto = dao.studentLogin(dto);
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/Login.jsp");
+			request.setAttribute("dto", dto);
+>>>>>>> origin/이주운
 			rd.forward(request,response);
 		}
 	}

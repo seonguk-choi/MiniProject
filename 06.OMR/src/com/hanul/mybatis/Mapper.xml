@@ -9,6 +9,7 @@
 <mapper namespace="com.hanul.mybatis.Mapper.xml">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<!-- SQL 문장작성-->
 
 >>>>>>> origin/main
@@ -61,11 +62,23 @@
 	<select id="studentExam" parameterType="int" resultType="StudentDTO">
 		select * from Student where std_code = #{std_code}
 	</select>
+=======
+	<select id="studentExam" parameterType="int" resultType="StudentDTO">
+		select * from Student where std_code = #{std_code}
+	</select>
+>>>>>>> origin/이주운
 	<select id="timerExam" resultType="TimerDTO">
 		select * from Timer 
 	</select>	
 	<select id="studentSearchAll" resultType="StudentDTO">
 		select * from Student
 	</select>	
+<<<<<<< HEAD
 </mapper>
 >>>>>>> origin/main
+=======
+	<select id="studentLogin" resultType="StudentDTO">
+		select aplly(no) from Student where name = #{name} and std_code = #{std_code}
+	</select>	
+</mapper>
+>>>>>>> origin/이주운
