@@ -9,10 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.hanul.DTO.StudentDTO;
+import com.hanul.DTO.TimerDTO;
 
 public class OmrDAO {
-	//기존 JDBC 모델에서는 Connection(연결객체)을 먼저 만들었지만,
-	//myBatis 경우 SqlSessionFactoty 객체를 먼저 생성
 	private static SqlSessionFactory sqlMapper;
 	static {
 		try {
@@ -24,8 +23,6 @@ public class OmrDAO {
 			System.out.println("SqlSessionFactory Exception!!!");
 		}
 	}//초기화 블럭
-	
-//---------------------------------------기근태 시작---------------------------------------//
 	
 	//수험생 등록
 	public int memberInsert(StudentDTO dto) {
@@ -51,48 +48,31 @@ public class OmrDAO {
 		list = session.selectList("studentSearchAll");
 		session.close();
 		return list;
-	}//memberSearchAll()
+	}//studentSearchAll()
 	
-	/*
-	//회원정보 삭제
-	public int memberDelete(String id) {
-		SqlSession session = sqlMapper.openSession();
-		int succ = 0;
-		succ = session.delete("memberDelete", id);
-		session.commit();
-		session.close();
-		return succ;
-	}//memberDelete()
 	
-	//회원정보 검색
-	public MemberDTO getById(String id) {
+	//StudentExam
+	public StudentDTO studentExam(int std_code) {
 		SqlSession session = sqlMapper.openSession();
-		MemberDTO dto = null;
-		dto = session.selectOne("getById", id);
+		StudentDTO dto = null;
+		dto = session.selectOne("studentExam", std_code);
 		session.close();
 		return dto;
-	}//getById()
+	}//studentExam()
 	
-	//회원정보 수정
-	public int memberUpdate(MemberDTO dto) {
+	//TimerExam
+	public TimerDTO timerExam() {
 		SqlSession session = sqlMapper.openSession();
-		int succ = 0;
-		succ = session.update("memberUpdate", dto);
-		session.commit();
+		TimerDTO dtot = null;
+		dtot = session.selectOne("timerExam");
 		session.close();
-		return succ;
-	}//memberUpdate()
-	
-	//조건검색
-	public List<MemberDTO> memberSearch(SearchDTO dto) {
-		SqlSession session = sqlMapper.openSession();
-		List<MemberDTO> list = null;
-		list = session.selectList("memberSearch", dto);
-		session.close();
-		return list;
-	}//memberSearch()
-	
-	---------------------------------------------------------------------기근태 끝 */
+		return dtot;
+	}//tiemrExam()
+
 	
 	
-}//class
+	
+}
+
+
+
