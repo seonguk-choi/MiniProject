@@ -11,26 +11,26 @@ manager   VARCHAR2(4) CHECK(manager IN('Y', 'N')) NOT NULL
 );
 
 INSERT INTO Student (name, std_code, result, apply, manager)
-VALUES ('seonguk', 1001, 'FAIL', 'NO','N');
+VALUES ('hanul', 1001, 'FAIL', 'NO','N');
 
 INSERT INTO Student (name, std_code, result, apply, manager)
-VALUES ('jooun', 1002, 'FAIL', 'NO','N');
+VALUES ('hanul', 1002, 'FAIL', 'NO','N');
 
 INSERT INTO Student (name, std_code, result, apply, manager)
-VALUES ('jikang', 1003, 'FAIL', 'NO','N');
+VALUES ('hanul', 1003, 'FAIL', 'NO','N');
 
 INSERT INTO Student (name, std_code, result, apply, manager)
-VALUES ('geontea', 1004, 'FAIL', 'NO','N');
+VALUES ('hanul', 1004, 'FAIL', 'NO','N');
 
 INSERT INTO Student (name, std_code, result, apply, manager)
-VALUES ('myoungun', 9999, 'PASS', 'YES', 'Y');
+VALUES ('admin', 9999, 'PASS', 'YES', 'Y');
 
 SELECT * FROM student;
 
 --------------------------------------------------------------------------------
 --2. Answer table
 
-CREATE TABLE answer (answer NUMBER NOT NULL);
+CREATE TABLE answer (answer   CHAR(1) NOT NULL);
 
 INSERT INTO answer
 VALUES (1);
@@ -59,13 +59,11 @@ SELECT * FROM answer;
 --3. Timer table
 
 CREATE TABLE timer (
-minutes   NUMBER NOT NULL,
-seconds   NUMBER NOT NULL
+minutes   VARCHAR2(3) NOT NULL,
+seconds   VARCHAR2(3) NOT NULL
 );
 
 INSERT INTO timer
 VALUES(5, 0);
 
 SELECT * FROM timer;
-
-commit;
