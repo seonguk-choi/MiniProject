@@ -1,11 +1,7 @@
 package com.hanul.DAO;
 
 import java.io.InputStream;
-<<<<<<< HEAD:06.OMR/src/com/hanul/dao/OmrDAO.java
-import java.util.HashMap;
-=======
 import java.util.ArrayList;
->>>>>>> origin/main:06.OMR/src/com/hanul/DAO/OmrDAO.java
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -46,7 +42,6 @@ public class OmrDAO {
 		StudentDTO dto = session.selectOne("loginCheck2", std_code);
 		session.close();
 		return dto;
-<<<<<<< HEAD:06.OMR/src/com/hanul/dao/OmrDAO.java
 	}//studentExam()
 	
 	//TimerExam
@@ -74,13 +69,4 @@ public class OmrDAO {
 		session.close();
 		return rank+1;
 	}
-=======
-	}//loginCheck2()
->>>>>>> origin/main:06.OMR/src/com/hanul/DAO/OmrDAO.java
-	
-	
-	
 }
-
-
-

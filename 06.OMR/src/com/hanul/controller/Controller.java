@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.hanul.action.Action;
 import com.hanul.action.ActionForward;
 import com.hanul.action.LoginAction;
+import com.hanul.action.StudentRankAction;
+import com.hanul.action.StudentResultAction;
 
 @WebServlet("*.do")
 public class Controller extends HttpServlet {
@@ -37,9 +39,11 @@ public class Controller extends HttpServlet {
 			action = new LoginAction();
 			forward = action.execute(request, response);
 		} else if (command.equals("/studentResult.do")) { //시험결과
-			
+			action = new StudentResultAction();
+			forward = action.execute(request, response);
 		} else if (command.equals("/studentRank.do")) { //등수확인
-			
+			action = new StudentRankAction();
+			forward = action.execute(request, response);
 		} else if (command.equals("/adminList.do")) {	//관리자모드
 			
 		} else if (command.equals("/adminRegister.do")) { //학생등록

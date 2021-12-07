@@ -6,7 +6,6 @@
 	<select id="loginCheck1" resultType="int">
 		select count(*) from Student where std_code = #{std_code}
 	</select>	
-<<<<<<< HEAD
 	<select id="studentSearchAll" resultType="StudentDTO">
 		select * from Student
 	</select>
@@ -19,9 +18,8 @@
 	<select id="studentRank" parameterType="int" resultType="int">
 		select count(*) from student where score > #{score} order by score desc
 	</select>
-=======
 	<select id="loginCheck2" resultType="StudentDTO">
 		select * from Student where std_code = #{std_code}
 	</select>	
->>>>>>> origin/main
+
 </mapper>
