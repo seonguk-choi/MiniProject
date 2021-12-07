@@ -3,13 +3,10 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hanul.mybatis.Mapper.xml">
-	<select id="studentExam" parameterType="int" resultType="StudentDTO">
-		select * from Student where std_code = #{std_code}
-	</select>
-	<select id="timerExam" resultType="TimerDTO">
-		select * from Timer 
+	<select id="loginCheck1" resultType="int">
+		select count(*) from Student where std_code = #{std_code}
 	</select>	
-	<select id="studentSearchAll" resultType="StudentDTO">
-		select * from Student
+	<select id="loginCheck2" resultType="StudentDTO">
+		select * from Student where std_code = #{std_code}
 	</select>	
 </mapper>

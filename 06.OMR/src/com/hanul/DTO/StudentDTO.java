@@ -3,25 +3,12 @@ package com.hanul.DTO;
 import java.io.Serializable;
 
 public class StudentDTO implements Serializable{
-	
-	//필드 선언
-	private String name		;  //varchar2(20 byte)
-	private int std_code	;  //number
-	private int score		;  //number(4,0)
-	private String result	;  //varchar2(4 byte)
-	private String apply	;  //varchar2(4 byte)
-	private String manager	;  //varchar2(4 byte)
-	
-	public StudentDTO(String name, int std_code, int score, String result, String apply, String manager) {
-		super();
-		this.name = name;
-		this.std_code = std_code;
-		this.score = score;
-		this.result = result;
-		this.apply = apply;
-		this.manager = manager;
-	}
-	//Getters & Setters 메소드
+	private String name     ;
+	private int	   std_code ;
+	private int	   score    ;
+	private String result   ;
+	private String apply    ;
+	private String manager  ;
 	public String getName() {
 		return name;
 	}
@@ -58,6 +45,8 @@ public class StudentDTO implements Serializable{
 	public void setManager(String manager) {
 		this.manager = manager;
 	}
-
-		
+	
+	
+	
+	
 }

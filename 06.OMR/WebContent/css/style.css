@@ -24,7 +24,65 @@
 
 
 /* ----------------8. studentGrade.jsp--------------------------- */
+.exam {
+	position: absolute;
+	width: 80%;
+	
+}
 
+.info-wrap {
+	display: inline-block;
+	align-items: center;
+	
+}
+.wrapper {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+}
+
+/* .only-sr { */
+/*     overflow: hidden !important; */
+/*     position: absolute !important; */
+/*     width: 25px; */
+/*     height: 25px; */
+/* } */
+
+.radio-items {
+    display: block;
+    position: relative;
+    width: 200px;
+    background: #C4C4C4;
+    vertical-align: middle;
+    padding: 7px 0;
+    margin-left: 10px;
+    text-align: center;
+    
+}   
+.radio-items > div {
+        display: inline-block;
+        width: 25px;
+        height:25px;
+        margin: 0 5px;
+        text-align: center;
+}
+label {
+        display: block;
+        background: #ffffff;
+        width: 25px;
+        height: 25px;
+        color: #000000;      
+        border: 1px solid #000000;
+        padding-top: 1px;
+        border-radius : 100%;
+        cursor: pointer;
+}
+input[type="radio"]:checked + label{
+        background-color: #000000;
+        color: #fff;
+    }
+}
+ input[type=radio] { border:none !important } 
 
 /* ----------------9. studentRank.jsp---------------------------- */
 
