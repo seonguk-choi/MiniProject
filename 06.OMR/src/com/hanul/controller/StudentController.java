@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hanul.DAO.OmrDAO;
+import com.hanul.DTO.AnswerDTO;
 import com.hanul.DTO.StudentDTO;
 import com.hanul.DTO.TimerDTO;
 
@@ -21,6 +22,7 @@ public class StudentController extends HttpServlet {
 		OmrDAO dao = new OmrDAO();
 		StudentDTO dto = new StudentDTO();
 		TimerDTO dtot = new TimerDTO();
+		List<AnswerDTO> lista = null;
 		
 		if(request.getServletPath().equals("/studentExam.bo")) {
 			dto = dao.studentExam(1001);
@@ -28,14 +30,15 @@ public class StudentController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("jsp/studentExam.jsp");
 			request.setAttribute("dto", dto);
 			request.setAttribute("dtot", dtot);
+			request.setAttribute("lista", lista);
 			rd.forward(request,response);
-		} else if(request.getServletPath().equals("/studentGrade.bo")) {
+		} else if(request.getServletPath().equals("/studentResult.bo")) {
 			dto = dao.studentExam(1001);
-			dtot = dao.timerExam();
-			RequestDispatcher rd = request.getRequestDispatcher("jsp/studentExam.jsp");
+	
+			RequestDispatcher rd = request.getRequestDispatcher("jsp/studentResult.jsp");
 			request.setAttribute("dto", dto);
-			request.setAttribute("dtot", dtot);
+			request.setAttribute("lista", lista);
 			rd.forward(request,response);
 		}
-	}
+	}	
 }

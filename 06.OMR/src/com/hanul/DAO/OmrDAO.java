@@ -25,14 +25,14 @@ public class OmrDAO {
 	}//초기화 블럭
 	
 	//수험생 등록
-	public int memberInsert(StudentDTO dto) {
+	public int studentInsert(StudentDTO dto) {
 		//SqlSessionFactory(sqlMapper)에서 session 활성화
 		SqlSession session = sqlMapper.openSession();
 		
 		int succ = 0;	//성공여부 판단
 		
 		//insert 작업(SQL문장작성) → Mapper.xml
-		succ = session.insert("sdInsert", dto);
+		succ = session.insert("studentInsert", dto);
 		
 		session.commit();	//커밋명령
 		
@@ -41,7 +41,7 @@ public class OmrDAO {
 		return succ;		//결과를 리턴		
 	}//memberInsert()
 	
-	//전체회원 목록검색
+	//전체수험생 목록검색
 	public List<StudentDTO> studentSearchAll() {
 		SqlSession session = sqlMapper.openSession();
 		List<StudentDTO> list = null;
@@ -49,7 +49,35 @@ public class OmrDAO {
 		session.close();
 		return list;
 	}//studentSearchAll()
+
+	//수험생정보 검색
+	public StudentDTO getById(int std_code) {
+		SqlSession session = sqlMapper.openSession();
+		StudentDTO dto = null;
+		dto = session.selectOne("getById", std_code);
+		session.close();
+		return dto;
+	}//getById()
 	
+	//수험생 정보 수정
+	public int studentUpdate(StudentDTO dto) {
+		SqlSession session = sqlMapper.openSession();
+		int succ = 0;
+		succ = session.update("studentUpdate", dto);
+		session.commit();
+		session.close();
+		return succ;
+	}//memberUpdate()
+	
+	//수험생 정보 삭제
+	public int studentDelete(String sdt_code) {
+		SqlSession session = sqlMapper.openSession();
+		int succ = 0;
+		succ = session.delete("studentDelete", sdt_code);
+		session.commit();
+		session.close();
+		return succ;
+	}//studentDelete()
 	
 	//StudentExam
 	public StudentDTO studentExam(int std_code) {

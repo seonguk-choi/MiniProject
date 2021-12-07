@@ -3,13 +3,29 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hanul.mybatis.Mapper.xml">
-	<select id="studentExam" parameterType="int" resultType="StudentDTO">
-		select * from Student where std_code = #{std_code}
-	</select>
-	<select id="timerExam" resultType="TimerDTO">
-		select * from Timer 
-	</select>	
+	<!-- 학생 정보 리스트 불러오기 -->
 	<select id="studentSearchAll" resultType="StudentDTO">
-		select * from Student
-	</select>	
+		select * from student <!-- order by rank desc -->
+	</select>
+	<!-- 학생 정보 수정하기 -->
+	<update id="studentUpdate" parameterType="StudentDTO">
+		update student 
+		set name = #{name},
+			score = #{score},
+			result = #{result},
+			apply = #{apply},
+			manager = #{manager},
+			rank = #{rank}	
+		where std_code = #{std_code}
+	</update>
+	
 </mapper>
+
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          

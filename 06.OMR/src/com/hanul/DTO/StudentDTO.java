@@ -11,16 +11,8 @@ public class StudentDTO implements Serializable{
 	private String result	;  //varchar2(4 byte)
 	private String apply	;  //varchar2(4 byte)
 	private String manager	;  //varchar2(4 byte)
+	private int rank		;  
 	
-	public StudentDTO(String name, int std_code, int score, String result, String apply, String manager) {
-		super();
-		this.name = name;
-		this.std_code = std_code;
-		this.score = score;
-		this.result = result;
-		this.apply = apply;
-		this.manager = manager;
-	}
 	//Getters & Setters 메소드
 	public String getName() {
 		return name;
@@ -57,6 +49,12 @@ public class StudentDTO implements Serializable{
 	}
 	public void setManager(String manager) {
 		this.manager = manager;
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 		
