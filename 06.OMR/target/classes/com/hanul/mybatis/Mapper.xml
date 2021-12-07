@@ -11,8 +11,14 @@
 	</select>	
 	<select id="studentSearchAll" resultType="StudentDTO">
 		select * from Student
-	</select>	
-	<select id="studentLogin" resultType="StudentDTO">
-		select aplly(no) from Student where name = #{name} and std_code = #{std_code}
-	</select>	
+	</select>
+		<select id="answerSearchAll" resultType="AnswerDTO">
+		select * from Answer
+	</select>
+	<update id="studentUpdate_score" parameterType="int" >
+		UPDATE Student SET score = #{score} where std_code = #{std_code} 
+	</update>
+	<select id="studentRank" parameterType="int" resultType="int">
+		select count(*) from student where score > #{score} order by score desc
+	</select>
 </mapper>
