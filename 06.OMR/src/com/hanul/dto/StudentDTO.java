@@ -13,7 +13,7 @@ public class StudentDTO implements Serializable{
 	private String manager	;  //varchar2(4 byte)
 	private int rank		;  
 	
-<<<<<<< HEAD:06.OMR/src/com/hanul/dto/StudentDTO.java
+
 	public StudentDTO() {
 		super();
 	}
@@ -27,9 +27,6 @@ public class StudentDTO implements Serializable{
 		this.manager = manager;
 	}
 	//Getters & Setters 메소드
-
-=======
->>>>>>> origin/CSU:06.OMR/src/com/hanul/DTO/StudentDTO.java
 	public String getName() {
 		return name;
 	}
@@ -66,12 +63,12 @@ public class StudentDTO implements Serializable{
 	public void setManager(String manager) {
 		this.manager = manager;
 	}
-<<<<<<< HEAD:06.OMR/src/com/hanul/dto/StudentDTO.java
+
 	
 	
 	
 	
-=======
+
 	public int getRank() {
 		return rank;
 	}
@@ -80,5 +77,5 @@ public class StudentDTO implements Serializable{
 	}
 
 		
->>>>>>> origin/CSU:06.OMR/src/com/hanul/DTO/StudentDTO.java
+
 }

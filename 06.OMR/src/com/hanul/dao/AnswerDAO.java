@@ -26,20 +26,19 @@ public class AnswerDAO {
 		}
 
 	}//초기화 블럭
-	
-<<<<<<< HEAD:06.OMR/src/com/hanul/dao/AnswerDAO.java
-	//전체회원 목록검색
+
+	//전체답안 검색
 	public List<AnswerDTO> answerSearchAll() {
 		SqlSession session = sqlMapper.openSession();
 		List<AnswerDTO> list = null;
 		list = session.selectList("answerSearchAll");
-=======
+		return list;
+	}
 	//loginCheck1
 	public int loginCheck1(int std_code) {
 		SqlSession session = sqlMapper.openSession();
 		int cnt = 0;
 		cnt = session.selectOne("loginCheck1", std_code);
->>>>>>> origin/CSU:06.OMR/src/com/hanul/DAO/OmrDAO.java
 		session.close();
 		return cnt;
 	}//loginCheck1()

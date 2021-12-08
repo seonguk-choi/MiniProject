@@ -17,7 +17,6 @@ public class LoginAction implements Action {
 			throws ServletException, IOException {
 		// 클라이언트의 요청
 		request.setCharacterEncoding("utf-8");
-<<<<<<< HEAD
 		ActionForward forward = new ActionForward();
 		StudentDTO dto = new StudentDTO();
 		String name = request.getParameter("name");
@@ -52,9 +51,10 @@ public class LoginAction implements Action {
 			out.println("<script>alert('이름 또는 수험번호가 잘 못 되었습니다.');");
 			forward.setPath("jsp/Login.jsp");
 		}
+		
 		forward.setRedirect(false);
 		return forward;
-=======
+
 		StudentDTO dto = new StudentDTO();
 		String name = request.getParameter("name");
 		int std_code = Integer.parseInt(request.getParameter("code"));
@@ -90,7 +90,6 @@ public class LoginAction implements Action {
 			out.println("location.href='Login.do';</script>");
 		}
 		return null;
->>>>>>> origin/CSU
 	}
 
 }

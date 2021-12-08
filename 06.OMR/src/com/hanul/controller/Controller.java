@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.hanul.action.Action;
 import com.hanul.action.ActionForward;
 import com.hanul.action.LoginAction;
-<<<<<<< HEAD
+
 import com.hanul.action.StudentRankAction;
-=======
+
 import com.hanul.action.StudentExamAction;
 import com.hanul.action.StudentGradeAction;
->>>>>>> origin/CSU
+
 import com.hanul.action.StudentResultAction;
 
 @WebServlet("*.do")
@@ -29,7 +29,7 @@ public class Controller extends HttpServlet {
 		String uri = request.getRequestURI();
 		String ctx = request.getContextPath();
 		String command = uri.substring(ctx.length());
-<<<<<<< HEAD
+
 
 		Action action = null;
 		ActionForward forward = null;
@@ -43,10 +43,9 @@ public class Controller extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if (command.equals("/studentGrade.do")) { //시험응시
 			action = new LoginAction();
-=======
-		
-		Action action = null;
-		ActionForward forward = null;
+			//Action action = null;
+			//ActionForward forward = null;
+		}
 		
 		if (command.equals("/Login.do")) { //로그인
 			forward = new ActionForward();
@@ -63,48 +62,46 @@ public class Controller extends HttpServlet {
 			forward = action.execute(request, response);
 		} else if (command.equals("/studentGradeForm.do")) { //성적확인
 			action = new StudentGradeAction();
->>>>>>> origin/CSU
 			forward = action.execute(request, response);
 		} else if (command.equals("/studentResult.do")) { //시험결과
 			action = new StudentResultAction();
 			forward = action.execute(request, response);
 		} else if (command.equals("/studentRank.do")) { //등수확인
-<<<<<<< HEAD
+
 			action = new StudentRankAction();
 			forward = action.execute(request, response);
-=======
-			
->>>>>>> origin/CSU
+
+
 		} else if (command.equals("/adminList.do")) {	//관리자모드
 			
 		} else if (command.equals("/adminRegister.do")) { //학생등록
 			forward = new ActionForward();
-<<<<<<< HEAD
+
 			forward.setPath("jsp/adminRegister.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/adminCorrection.do")) { //학생정보수정
 			forward = new ActionForward();
 			forward.setPath("jsp/adminCorrection.jsp");
-=======
+
 			forward.setPath("/adminRegister.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/adminCorrection.do")) { //학생정보수정
 			forward = new ActionForward();
 			forward.setPath("/adminCorrection.jsp");
->>>>>>> origin/CSU
+
 			forward.setRedirect(false);
 			forward = action.execute(request, response);
 		} else if (command.equals("/adminAnswer.do")) { //답안지수정
 			forward = new ActionForward();
-<<<<<<< HEAD
+
 			forward.setPath("jsp/adminAnswer.jsp");
 			forward.setRedirect(false);
 		} else if (command.equals("/adminTimer.do")) { //시간 수정
 			forward = new ActionForward();
 			forward.setPath("jsp/adminTimer.jsp");
-=======
+
 			forward.setPath("/adminAnswer.jsp");
->>>>>>> origin/CSU
+
 			forward.setRedirect(false);
 		}
 
