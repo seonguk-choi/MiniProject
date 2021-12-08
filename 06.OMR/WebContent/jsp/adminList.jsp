@@ -8,7 +8,6 @@
 request.setCharacterEncoding("utf-8");
 OmrDAO dao = new OmrDAO();
 List<StudentDTO> list = dao.studentSearchAll();
-//현재 페이지에서 사용할 바인딩(연결) 객체 : EL 표현식에서 사용
 request.setAttribute("list", list);
 %>
 <!DOCTYPE html>
@@ -18,8 +17,9 @@ request.setAttribute("list", list);
 <title>AdminList JSP</title>
 <script type="text/javascript">
 function fnDelete(std_code){
+
 	if(confirm("정말 삭제하시겠습니까?")){
-		location.href = "adminDelete.do?std_code=" + ${dto.std_code};
+		location.href = "adminDelete.do?std_code=" + std_code;
 	}
 	return false;
 }
@@ -53,7 +53,7 @@ function fnDelete(std_code){
 				<td>${i.score}</td>
 				<td>${i.result}</td>
 				<td>${i.apply}</td>
-				<td>${i.manager}</td>
+				<td>${i.manager}</td>			<%-- //location.href = "boardDelete.do?b_num=" + ${dto.b_num}; --%>
 				<td><input type="button" value="삭제" onclick="fnDelete('${i.std_code}')"/></td>
 				<td><input type="button" value="수정" onclick="location.href='adminUpdateForm.do?std_code=${i.std_code}';"/></td>
 			</tr>
@@ -61,7 +61,7 @@ function fnDelete(std_code){
 	</c:if>
 	<tr align="center">
 		<td>
-			<input type="button" value="추가" onclick="location.href='jsp/adminInsertForm.jsp'"> 
+			<input type="button" value="추가" onclick="location.href='adminInsertForm.do'"> 
 		</td>
 	</tr>
 </table>

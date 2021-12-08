@@ -33,6 +33,11 @@
 	<select id="getById" parameterType="int" resultType="studentDTO">
 		select * from student where std_code = #{std_code}
 	</select>
+	
+	<delete id="studentDelete" parameterType="int">
+		delete from student where std_code = #{std_code}
+	</delete>
+	
 </mapper>
 
                                                                                           

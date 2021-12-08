@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hanul.action.Action;
 import com.hanul.action.ActionForward;
+import com.hanul.action.AdminDeleteAction;
 import com.hanul.action.AdminInsertAction;
+import com.hanul.action.AdminInsertFormAction;
 import com.hanul.action.AdminListAction;
 import com.hanul.action.AdminUpdateAction;
 import com.hanul.action.AdminUpdateFormAction;
+
 
 
 @WebServlet("*.do")
@@ -49,17 +52,23 @@ public class Controller extends HttpServlet {
 		} else if (command.equals("/adminList.do")) {	//관리자모드
 			action = new AdminListAction();
 			forward = action.execute(request, response);
-		} else if (command.equals("/adminInsert.do")) { //학생등록
+		} else if (command.equals("/adminInsertForm.do")) { //학생정보추가화면
+			//글을 작성하는 페이지로 화면전환만 필요
+			forward = new ActionForward();
+			forward.setPath("jsp/adminInsertForm.jsp");
+			forward.setRedirect(false);
+		} else if (command.equals("/adminInsert.do")) {	//학생 추가하기
 			action = new AdminInsertAction();
 			forward = action.execute(request, response);
-		} else if (command.equals("/adminUpdateForm.do")) { //학생정보수정
+		} else if (command.equals("/adminUpdateForm.do")) { //학생 정보 수정화면
 			action = new AdminUpdateFormAction();
 			forward = action.execute(request, response);
-			
-		} else if (command.equals("/adminUpdate.do")) { //학생정보수정
+		} else if (command.equals("/adminUpdate.do")) { //학생 정보 수정
 			action = new AdminUpdateAction();
 			forward = action.execute(request, response);
-			
+		} else if(command.equals("/adminDelete.do")) {	//학생 정보 삭제
+			action = new AdminDeleteAction();
+			forward = action.execute(request, response);
 		} else if (command.equals("/adminAnswer.do")) { //답안지수정
 			forward = new ActionForward();
 			forward.setPath("/adminAnswer.jsp");

@@ -6,10 +6,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 request.setCharacterEncoding("utf-8");
-OmrDAO dao = new OmrDAO();
-List<StudentDTO> list = dao.studentSearchAll();
-//현재 페이지에서 사용할 바인딩 객체 생성 : EL표현식에서 사용
-pageContext.setAttribute("list", list);
+StudentDTO dto = (StudentDTO) request.getAttribute("dto");
+pageContext.setAttribute("dto", dto);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -45,7 +44,7 @@ function fnReset(){
 	</tr>                                                                                                                  
 	<tr>                                                                                                                   
 		<th>수험번호</th>
-		<td><input type="number" name="name" value="${dto.std_code}" required="required" class="in"/></td>
+		<td><input type="number" name="std_code" value="${dto.std_code}" required="required" class="in"/></td>
 	</tr>
 	<tr>                                                                                                                          
 		<th>점수</th>
@@ -71,7 +70,7 @@ function fnReset(){
 		<td colspan="2" align="center">
 			<input type="submit" value="학생추가"/>
 			<input type="reset" value="초기화하기"/>
-			<input type="button" value="목록보기" onclick="location.href='adminList.jsp'"/>
+			<input type="button" value="목록보기" onclick="location.href='adminList.do'"/>
 		</td>
 	</tr>
 </table>

@@ -36,6 +36,16 @@ public class OmrDAO {
 		return succ;		//결과를 리턴		
 	}//memberInsert()
 	
+	//수험생 정보 수정
+	public int studentUpdate(StudentDTO dto) {
+		SqlSession session = sqlMapper.openSession();
+		int succ = 0;
+		succ = session.update("studentUpdate", dto);
+		session.commit();
+		session.close();
+		return succ;
+	}//memberUpdate()
+	
 	//전체수험생 목록검색
 	public List<StudentDTO> studentSearchAll() {
 		SqlSession session = sqlMapper.openSession();
@@ -54,21 +64,13 @@ public class OmrDAO {
 		return dto;
 	}//getById()
 	
-	//수험생 정보 수정
-	public int studentUpdate(StudentDTO dto) {
-		SqlSession session = sqlMapper.openSession();
-		int succ = 0;
-		succ = session.update("studentUpdate", dto);
-		session.commit();
-		session.close();
-		return succ;
-	}//memberUpdate()
+	
 	
 	//수험생 정보 삭제
-	public int studentDelete(int sdt_code) {
+	public int studentDelete(int std_code) {
 		SqlSession session = sqlMapper.openSession();
 		int succ = 0;
-		succ = session.delete("studentDelete", sdt_code);
+		succ = session.delete("studentDelete", std_code);
 		session.commit();
 		session.close();
 		return succ;

@@ -3,9 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
-String id = request.getParameter("id");
+int std_code = Integer.parseInt(request.getParameter("std_code"));
 OmrDAO dao = new OmrDAO();
-int succ = dao.studentDelete(id);
+int succ = dao.studentDelete(std_code);
 
 if (succ > 0) {
 	out.println("<script>alert('삭제성공!');");
