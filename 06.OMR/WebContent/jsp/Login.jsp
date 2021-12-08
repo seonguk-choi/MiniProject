@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +45,15 @@ function fnReset(){
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
+<<<<<<< HEAD
 								<input type="submit" value="시험응시"/>
 								<input type="reset" value="초기화하기" />
 								<input type="button" value="성적확인" onclick="location.href='studentGrade.do'"/>
+=======
+								<input type="submit" value="Start exam"/>
+								<input type="reset" value="Reset" />
+								<input type="button" value="My Grade" onclick="location.href='studentGrade.do'"/>
+>>>>>>> origin/CSU
 							</td>
 						</tr>
 					</table>

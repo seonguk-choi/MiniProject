@@ -1,30 +1,30 @@
-
-<%@page import="com.hanul.DTO.StudentDTO"%>
-<%@page import="com.hanul.DAO.OmrDAO"%>
+<%@ page import="com.hanul.DTO.StudentDTO"%>
+<%@ page import="com.hanul.DAO.OmrDAO"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%
+request.setCharacterEncoding("utf-8");
+OmrDAO dao = new OmrDAO();
+List<StudentDTO> list = dao.studentSearchAll();
+//현재 페이지에서 사용할 바인딩(연결) 객체 : EL 표현식에서 사용
+request.setAttribute("list", list);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>AdminList JSP</title>
-<!-- <script type="text/javascript">
-function fnDelete(id){
-	//alert("ID : " + id);
+<script type="text/javascript">
+function fnDelete(std_code){
 	if(confirm("정말 삭제하시겠습니까?")){
-		location.href = "delete.jsp?id=" + id;
+		location.href = "adminDelete.do?std_code=" + ${dto.std_code};
 	}
 	return false;
 }
 
-function fnUpdate(id){
-	//alert("ID : " + id);
-	location.href = "detail.jsp?id=" + id;
-}
-</script> -->
+</script>
 </head>
 <body>
 <div align="center">
@@ -37,6 +37,8 @@ function fnUpdate(id){
 		<th>합격결과</th>
 		<th>응시여부</th>
 		<th>매니저유무</th>
+		<th>삭제</th>
+		<th>수정</th>
 	</tr>
 	<c:if test="${empty list}">
 		<tr align="center">
@@ -53,26 +55,15 @@ function fnUpdate(id){
 				<td>${i.apply}</td>
 				<td>${i.manager}</td>
 				<td><input type="button" value="삭제" onclick="fnDelete('${i.std_code}')"/></td>
-				<td><input type="button" value="수정" onclick="fnUpdate('${i.std_code}')"/></td>
+				<td><input type="button" value="수정" onclick="location.href='adminUpdateForm.jsp'"/></td>
 			</tr>
 		</c:forEach>
 	</c:if>
-	<!-- 수험생 한명 검색하는거 시간나면 하기 -->
-	<!-- <tr align="center">
-		<td colspan="8">
-			<form action="search.jsp" method="post">
-				<select name="part">
-					<option value="name">이름</option>
-					<option value="id">아이디</option>
-					<option value="addr">주소</option>
-					<option value="tel">전화번호</option>
-				</select>
-				<input type="text" name="searchData" required="required"/>
-				<input type="submit" value="검색하기"/>
-				<input type="button" value="회원가입" onclick="location.href='memberMain.html'"/>
-			</form>
+	<tr align="center">
+		<td>
+			<input type="button" value="추가" onclick="location.href='adminInsertForm.jsp'"> 
 		</td>
-	</tr> -->
+	</tr>
 </table>
 </div>
 </body>
