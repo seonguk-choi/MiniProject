@@ -37,7 +37,7 @@ function fnReset(){
 <body>
 <div align="center">
 <h3>[수험생정보 수정화면]</h3>
-<form action="adminUpdate.jsp" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()"> 
+<form action="adminUpdate.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()"> 
 <input type="hidden" name="std_code" value="${dto.std_code}"/>                                                                
 <table border="1">                                                                                                         
 	<tr>                                                                                                                   
@@ -70,9 +70,9 @@ function fnReset(){
 	</tr>
 	<tr align="center">
 		<td colspan="2">
-			<input type="button" value="수정하기" />
+			<input type="submit" value="수정하기" />
 			<input type="reset" value="초기화하기"/>
-			<input type="button" value="목록보기" onclick="location.href='adminList.jsp'"/>
+			<input type="button" value="목록보기" onclick="location.href='adminList.do'"/>
 		</td>
 	</tr>
 </table>

@@ -19,6 +19,20 @@
 		where std_code = #{std_code}
 	</update>
 	
+	<insert id="studentInsert" parameterType="studentDTO">
+		insert into student
+		 values(#{name},
+		 		#{std_code},
+		 		#{score}, 
+		 		#{result}, 
+		 		#{apply}, 
+		 		#{manager}, 
+		 		#{rank} )
+	</insert>
+	
+	<select id="getById" parameterType="int" resultType="studentDTO">
+		select * from student where std_code = #{std_code}
+	</select>
 </mapper>
 
                                                                                           

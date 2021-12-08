@@ -18,7 +18,7 @@ public class AdminUpdateAction implements Action{
 		StudentDTO dto = new StudentDTO();
 		dto.setName(request.getParameter("name"));
 		dto.setStd_code(Integer.parseInt(request.getParameter("std_code")));
-		dto.setScore(Integer.parseInt(request.getParameter("std_code")));
+		dto.setScore(Integer.parseInt(request.getParameter("score")));
 		dto.setResult(request.getParameter("result"));
 		dto.setApply(request.getParameter("apply"));
 		dto.setManager(request.getParameter("manager"));
@@ -31,8 +31,8 @@ public class AdminUpdateAction implements Action{
 		
 		//프리젠테이션 로직
 		ActionForward forward = new ActionForward();
-		forward.setPath("adminUpdateForm.do?std_code=" + dto.getStd_code());
-		forward.setRedirect(true);
+		forward.setPath("adminList.do");
+		forward.setRedirect(false);
 		return forward;
 	}
 }

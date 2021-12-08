@@ -37,7 +37,7 @@ function fnReset(){
 <body>
 <div align="center">
 <h3>[학생정보 추가화면]</h3>
-<form action="adminInsert.jsp" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
+<form action="adminInsert.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
 <table border="1">
 	<tr>                                                                                                                   
 		<th>이름</th>                                                                                                      

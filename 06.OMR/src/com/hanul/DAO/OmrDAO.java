@@ -28,16 +28,11 @@ public class OmrDAO {
 	public int studentInsert(StudentDTO dto) {
 		//SqlSessionFactory(sqlMapper)에서 session 활성화
 		SqlSession session = sqlMapper.openSession();
-		
 		int succ = 0;	//성공여부 판단
-		
 		//insert 작업(SQL문장작성) → Mapper.xml
 		succ = session.insert("studentInsert", dto);
-		
 		session.commit();	//커밋명령
-		
 		session.close();	//session 종료
-		
 		return succ;		//결과를 리턴		
 	}//memberInsert()
 	
@@ -70,7 +65,7 @@ public class OmrDAO {
 	}//memberUpdate()
 	
 	//수험생 정보 삭제
-	public int studentDelete(String sdt_code) {
+	public int studentDelete(int sdt_code) {
 		SqlSession session = sqlMapper.openSession();
 		int succ = 0;
 		succ = session.delete("studentDelete", sdt_code);

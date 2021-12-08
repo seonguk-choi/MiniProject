@@ -55,13 +55,13 @@ function fnDelete(std_code){
 				<td>${i.apply}</td>
 				<td>${i.manager}</td>
 				<td><input type="button" value="삭제" onclick="fnDelete('${i.std_code}')"/></td>
-				<td><input type="button" value="수정" onclick="location.href='adminUpdateForm.jsp'"/></td>
+				<td><input type="button" value="수정" onclick="location.href='adminUpdateForm.do?std_code=${i.std_code}';"/></td>
 			</tr>
 		</c:forEach>
 	</c:if>
 	<tr align="center">
 		<td>
-			<input type="button" value="추가" onclick="location.href='adminInsertForm.jsp'"> 
+			<input type="button" value="추가" onclick="location.href='jsp/adminInsertForm.jsp'"> 
 		</td>
 	</tr>
 </table>
