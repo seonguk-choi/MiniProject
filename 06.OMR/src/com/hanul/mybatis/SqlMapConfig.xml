@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.hanul.DTO.AnswerDTO" alias="AnswerDTO"/>
 		<typeAlias type="com.hanul.DTO.StudentDTO" alias="StudentDTO"/>
-		<typeAlias type="com.hanul.DTO.TimerDTO" alias="TimerDTO"/>
+		<typeAlias type="com.hanul.study.TimerDTO" alias="TimerDTO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +22,21 @@ function fnReset(){
 	}
 	return false;
 }
+function fnGrade(){		
+	var name = $('input[type=text]').val();
+	var code = $('input[type=number]').val();
+	if(name.trim()!=""){
+		if(code.trim()!=""){
+			location.href="studentGrade.do?name="+name+"&std_code="+code;	
+		}else {
+			alert("수험번호를 입력하세요");
+			$('input[type=number]').focus();			
+		}
+	} else{
+		alert("이름을 입력하세요");
+		$('input[type=text]').focus();
+	}
+}
 </script>
 </head>
 <body>
@@ -31,20 +49,20 @@ function fnReset(){
 						<tr>
 							<th class="ths">Name</th>
 							<td class="tds">
-								<input type="text" name="name"required="required" class="input" />
+								<input type="text" name="name"required="required" />
 							</td>
 						</tr>
 						<tr>
 							<th class="ths">Student Code</th>
 							<td class="tds">
-								<input type="number" name="code" required="required" class="input" />
+								<input type="number" name="std_code" required="required" />
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="submit" value="시험응시"/>
-								<input type="reset" value="초기화하기" />
-								<input type="button" value="성적확인" onclick="location.href='studentGrade.do'"/>
+								<input type="submit" value="Start exam"/>
+								<input type="reset" value="Reset" />
+								<input type="button" value="My Grade" onclick="fnGrade()"/>
 							</td>
 						</tr>
 					</table>

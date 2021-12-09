@@ -17,52 +17,41 @@ public class StudentGradeAction implements Action {
 			throws ServletException, IOException {
 		// 클라이언트의 요청
 		request.setCharacterEncoding("utf-8");
-		ActionForward forward = new ActionForward();
 		StudentDTO dto = new StudentDTO();
 		String name = request.getParameter("name");
-		int std_code = Integer.parseInt(request.getParameter("code"));
-		System.out.println(name);
-		System.out.println(std_code);
-		// 비지니스 로직
-		PrintWriter out = response.getWriter();
-		OmrDAO dao = new OmrDAO();
-		int cnt = dao.loginCheck1(std_code);
+		int std_code = Integer.parseInt(request.getParameter("std_code"));
+		int cnt = 0;
 		
-		//프레젠테이션 로
+		// 비지니스 로직
+		OmrDAO dao = new OmrDAO();
+		cnt = dao.loginCheck1(std_code);
+
+		// 프리젠테이션 수행
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
 		if (cnt == 0) {
 			out.println("<script>alert('이름 또는 수험번호가 잘 못 되었습니다.');");
-			forward.setPath("jsp/Login.jsp");
-			forward.setRedirect(false);
-			return forward;
-		} else if (cnt == 1) {
+			out.println("location.href='login.do';</script>");
+		} else if (cnt > 0) {
 			dto = dao.loginCheck2(std_code);
-			if (dto.getName().equals(name) && dto.getApply().equals("NO")) {
-				out.println("<script>alert('아직 응시하지 않았습니다.');");
-				forward.setPath("jsp/Login.jsp");
-				forward.setRedirect(false);
-				return forward;
-			} else if (dto.getName().equals(name) && dto.getApply().equals("YES")) {
-				forward.setPath("jsp/studentGrade.jsp");
-				forward.setRedirect(false);
-				return forward;
-			} else if (dto.getName().equals(name) && dto.getManager().equals("Y")) {
+			if (dto.getName().equals(name) && dto.getManager().equals("Y")) {
 				out.println("<script>alert('관리자 모드로 이동합니다.');");
-				forward.setPath("jsp/adminList.jsp");
-				forward.setRedirect(false);
-				return forward;
-
+				out.println("location.href='adminList.do?std_code=" + dto.getStd_code() + "';</script>");
+			} else if (dto.getName().equals(name) && dto.getApply().equals("YES")) {
+				out.println("<script>alert('" + dto.getName()+ "님의 성적을 확인합니다.');");
+				out.println("location.href='studentGradeForm.do?std_code=" + dto.getStd_code() + "';</script>");				
+			}  else if (dto.getName().equals(name) && dto.getApply().equals("NO")) {
+				out.println("<script>alert('먼저 시험을 응시해주세요.');");
+				out.println("location.href='studentExam.do?std_code="+dto.getStd_code()+"';</script>");
 			} else {
 				out.println("<script>alert('이름 또는 수험번호가 잘 못 되었습니다.');");
-				forward.setPath("jsp/Login.jsp");
-				forward.setRedirect(false);
-				return forward;
+				out.println("location.href='login.do';</script>");				
 			}
 		} else {
 			out.println("<script>alert('이름 또는 수험번호가 잘 못 되었습니다.');");
-			forward.setPath("jsp/Login.jsp");
-			forward.setRedirect(false);
-			return forward;
+			out.println("location.href='login.do';</script>");
 		}
+		return null;
 	}
 
 }

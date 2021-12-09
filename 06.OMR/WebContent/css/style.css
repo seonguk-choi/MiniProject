@@ -27,7 +27,6 @@
 .exam {
 	position: absolute;
 	width: 80%;
-	
 }
 
 .info-wrap {
@@ -41,12 +40,13 @@
 	right: 10%;
 }
 
-/* .only-sr { */
-/*     overflow: hidden !important; */
-/*     position: absolute !important; */
-/*     width: 25px; */
-/*     height: 25px; */
-/* } */
+.only-sr {
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px;
+    height: 1px;
+}
 
 .radio-items {
     display: block;
