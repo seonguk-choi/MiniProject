@@ -6,22 +6,22 @@
 
 	<!-- 로그인1 -->
 	<select id="loginCheck1" resultType="int">
-		select count(*) from Student where std_code = #{std_code}
+		select count(*) from student_a where std_code = #{std_code}
 	</select>
 	
 	<!-- 로그인2 -->
 	<select id="loginCheck2" resultType="StudentDTO">
-		select * from Student where std_code = #{std_code}
+		select * from student_a where std_code = #{std_code}
 	</select>
 	
 	<!-- 학생 정보 리스트 불러오기 -->
 	<select id="studentSearchAll" resultType="StudentDTO">
-		select * from student <!-- order by rank desc -->
+		select * from student_a <!-- order by rank desc -->
 	</select>
 	
 	<!-- 학생 정보 수정하기 -->
 	<update id="studentUpdate1" parameterType="StudentDTO">
-		update student 
+		update student_a 
 		set name = #{name},
 			score = #{score},
 			result = #{result},
@@ -32,7 +32,7 @@
 	
 	<!-- 학생 정보 입력 -->
 	<insert id="studentInsert" parameterType="studentDTO">
-		insert into student
+		insert into student_a
 		 values(#{name},
 		 		#{std_code},
 		 		#{score}, 
@@ -43,7 +43,7 @@
 	
 	<!-- 학생 정보 수정하기 -->
 	<update id="studentUpdate2" parameterType="StudentDTO">
-		update student 
+		update student_a 
 		set name = #{name},
 			score = #{score},
 			result = #{result},
@@ -54,35 +54,35 @@
 	
 	<!-- 학생 정보 삭제하기 -->
 	<delete id="studentDelete" parameterType="int">
-		delete from student where std_code = #{std_code}
+		delete from student_a where std_code = #{std_code}
 	</delete>
 	
 	<!-- 학생 1명 정보 불러오기 -->
 	<select id="getById" parameterType="int" resultType="studentDTO">
-		select * from student where std_code = #{std_code}
+		select * from student_a where std_code = #{std_code}
 	</select>
 	
 	<!-- 정답지 불러오기 -->
 	<select id="answerSearchAll" resultType="AnswerDTO">
-		select * from Answer
+		select * from answer_a
 	</select>
 	
 	<!-- 학생 점수수정 -->
 	<update id="studentUpdate_score" parameterType="int" >
-		UPDATE Student SET score = #{score} where std_code = #{std_code} 
+		UPDATE student_a SET score = #{score} where std_code = #{std_code} 
 	</update>
 	
 	<!-- 학생 등수확인 -->
 	<select id="studentRank" parameterType="int" resultType="int">
-		select count(*) from student where score > #{score} order by score desc
+		select count(*) from student_a where score > #{score} order by score desc
 	</select>
 		<!-- 시간 값 가져오기 분 -->
 	<select id="timeSerch1" resultType="int">
-		select minutes from timer 
+		select minutes from timer_a 
 	</select>
 			<!-- 시간 값 가져오기 초 -->
 	<select id="timeSerch2" resultType="int">
-		select seconds from timer 
+		select seconds from timer_a 
 	</select>
 	
 </mapper>
