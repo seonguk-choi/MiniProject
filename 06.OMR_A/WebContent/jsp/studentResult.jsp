@@ -20,9 +20,10 @@
 <head>
 <meta charset="UTF-8">
 <title>studentResult</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<div align="center">
+	<div class="middleR" align="center">
 		<h3>[채점 보기]</h3>
 
 		<form method="post" action="studentRank.do">

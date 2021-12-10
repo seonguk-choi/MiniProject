@@ -14,9 +14,10 @@ int rank = (int) request.getAttribute("rank");
 <head>
 <meta charset="UTF-8">
 <title>studentRank</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div align="center">
+<div class="middle" align="center">
 <h3>[등수 보기]</h3>
 <table border="1" style="width: 80%">
 	<tr>

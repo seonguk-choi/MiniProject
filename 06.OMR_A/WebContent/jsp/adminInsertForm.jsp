@@ -15,6 +15,7 @@ pageContext.setAttribute("dto", dto);
 <head>
 <meta charset="UTF-8">
 <title>student Insert From</title>
+<link rel="stylesheet" href="css/style.css" />
 <script type="text/javascript">
 function fnSubmit(){
 	if(confirm("학생을 추가하시겠습니까?")){
@@ -34,7 +35,7 @@ function fnReset(){
 </script>
 </head>
 <body>
-<div align="center">
+<div class="middle" align="center">
 <h3>[학생정보 추가화면]</h3>
 <form action="adminInsert.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
 <table border="1">

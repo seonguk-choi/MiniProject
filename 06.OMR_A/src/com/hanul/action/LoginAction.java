@@ -25,7 +25,6 @@ public class LoginAction implements Action {
 		// 비지니스 로직
 		OmrDAO dao = new OmrDAO();
 		cnt = dao.loginCheck1(std_code);
-		System.out.println(cnt);
 		//프리젠테이션 수행
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();		

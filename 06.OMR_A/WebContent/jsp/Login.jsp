@@ -9,6 +9,7 @@ request.setCharacterEncoding("utf-8");
 <meta charset="UTF-8">
 <title>Login</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css" />
 <script type="text/javascript">
 function fnSubmit(){
 	if(confirm("응시 하시겠습니까?")){
@@ -40,9 +41,9 @@ function fnGrade(){
 </script>
 </head>
 <body>
-	<div class="bg">
+	<div>
 		<div class="text">
-			<div align="center">
+			<div class="login" align="center">
 				<h3>Login</h3>
 				<form action="LoginAction.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
 					<table>

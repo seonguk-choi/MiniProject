@@ -27,8 +27,9 @@ function fnDelete(std_code){
 </script>
 </head>
 <body>
-<div align="center">
+<div class="middle" align="center">
 <h3>[Student List]</h3>
+<link rel="stylesheet" href="css/style.css" />
 <table border="1">
 	<tr>
 		<th>이름</th>

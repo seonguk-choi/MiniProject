@@ -30,7 +30,6 @@ public class OmrDAO {
 	public int loginCheck1(int std_code) {
 		SqlSession session = sqlMapper.openSession();
 		int cnt = 0;
-		System.out.println(std_code);
 		cnt = session.selectOne("loginCheck1", std_code);
 		session.close();
 		return cnt;

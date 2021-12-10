@@ -11,6 +11,7 @@ StudentDTO dto = (StudentDTO) request.getAttribute("dto");
 <head>
 <meta charset="UTF-8">
 <title>Admin Update Form</title>
+<link rel="stylesheet" href="css/style.css" />
 <style type="text/css">
 .in{
 	background-color: #E0E0E0;
@@ -35,7 +36,7 @@ function fnReset(){
 </script>
 </head>
 <body>
-<div align="center">
+<div class="middle" align="center">
 <h3>[수험생정보 수정화면]</h3>
 <form action="adminUpdate.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()"> 
 <input type="hidden" name="std_code" value="${dto.std_code}"/>                                                                
@@ -46,7 +47,7 @@ function fnReset(){
 	</tr>                                                                                                                  
 	<tr>                                                                                                                   
 		<th>수험번호</th>
-		<td><input type="number" name="std_code" value="${dto.std_code}" required="required" class="in"/></td>
+		<td>${dto.std_code}</td>
 	</tr>
 	<tr>                                                                                                                          
 		<th>점수</th>
